@@ -3,6 +3,7 @@ package net.simplifiedcoding.firebasephoneauth;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -33,14 +34,15 @@ public class MainActivity extends AppCompatActivity {
 
                 String number = editText.getText().toString().trim();
 
-                if (number.isEmpty() || number.length() < 10) {
-                    editText.setError("Valid number is required");
-                    editText.requestFocus();
-                    return;
-                }
+//                if (number.isEmpty() || number.length() < 10) {
+//                    editText.setError("Valid number is required");
+//                    editText.requestFocus();
+//                    return;
+//                }
 
                 String phoneNumber = "+" + code + number;
 
+                Log.d("123", phoneNumber);
                 Intent intent = new Intent(MainActivity.this, VerifyPhoneActivity.class);
                 intent.putExtra("phonenumber", phoneNumber);
                 startActivity(intent);
